@@ -54,7 +54,7 @@ has_one :shopping_information
 | prefecture_id   | integer | null: false |
 | city            | string  | null: false |
 | house_number    | integer | null: false |
-| house_name      | string  | null: false |
+| house_name      | string  |             |
 | phone_number    | integer | null: false |
 
 ### Association
