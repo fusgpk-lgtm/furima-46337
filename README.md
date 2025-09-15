@@ -50,7 +50,7 @@ has_one :shopping_information
 
 | Column          | Type    | Options     |
 |-----------------|---------|-------------|
-| post_number     | integer | null: false |
+| post_number     | string | null: false |
 | prefecture      | string  | null: false |
 | city            | string  | null: false |
 | house_number    | integer | null: false |
