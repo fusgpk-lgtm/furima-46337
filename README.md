@@ -21,7 +21,6 @@ has_many :purchase_records
 | Column          | Type    | Options     |
 |-----------------|---------|-------------|
 | item_name       | string  | null: false |
-| image           |         | null: false |
 | explanation     | text    | null: false |
 | category        | string  | null: false |
 | state           | string  | null: false |
