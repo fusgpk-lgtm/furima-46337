@@ -11,7 +11,6 @@
 | kana_first_name | string | null: false |
 | birthday        | date   | null: false |
 
-
 ### Association
 has_many :items
 has_many :purchase_records
