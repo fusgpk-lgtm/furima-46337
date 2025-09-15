@@ -28,7 +28,7 @@ has_many :purchase_records
 | ship_from       | string  | null: false |
 | ship_day        | integer | null: false |
 | price           | integer | null: false |
-| users           | references | foreign_key: true |
+| user            | references | foreign_key: true |
 
 ### Association
 belongs_to :user
@@ -38,8 +38,8 @@ has_one :purchase_record
 
 | Column          | Type       | Options           |
 |-----------------|------------|-------------------|
-| users           | references | foreign_key: true |
-| items           | references | foreign_key: true |
+| user            | references | foreign_key: true |
+| item            | references | foreign_key: true |
 
 ### Association
 belongs_to :user
