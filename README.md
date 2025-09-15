@@ -32,7 +32,7 @@ has_many :purchase_records
 | users           | references | foreign_key: true |
 
 ### Association
-belongs_to :users
+belongs_to :user
 has_one :purchase_record
 
 ## purchase_records
@@ -43,8 +43,8 @@ has_one :purchase_record
 | items           | references | foreign_key: true |
 
 ### Association
-belongs_to :users
-belongs_to :items
+belongs_to :user
+belongs_to :item
 has_one :shopping_information
 
 ## shopping_information
