@@ -1,24 +1,62 @@
-# README
+## users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type   | Options     |
+|-----------------|--------|-------------|
+| nickname        | string | null: false |
+| email           | string | null: false, unique: true |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| kana_last_name  | string | null: false |
+| kana_first_name | string | null: false |
+| birthday        | date   | null: false |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+has_many :items
+has_many :purchase_records
 
-* System dependencies
+## items
 
-* Configuration
+| Column          | Type    | Options     |
+|-----------------|---------|-------------|
+| item_name       | string  | null: false |
+| image           |         | null: false |
+| explanation     | text    | null: false |
+| category        | string  | null: false |
+| state           | string  | null: false |
+| delivery_charge | integer | null: false |
+| ship_from       | string  | null: false |
+| ship_day        | integer | null: false |
+| price           | integer | null: false |
+| users           | references | foreign_key: true |
 
-* Database creation
+### Association
+belongs_to :users
+has_one :purchase_record
 
-* Database initialization
+## purchase_records
 
-* How to run the test suite
+| Column          | Type       | Options           |
+|-----------------|------------|-------------------|
+| users           | references | foreign_key: true |
+| items           | references | foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+belongs_to :users
+belongs_to :items
+has_one :shopping_information
 
-* Deployment instructions
+## shopping_information
 
-* ...
+| Column          | Type    | Options     |
+|-----------------|---------|-------------|
+| post_number     | integer | null: false |
+| prefecture      | string  | null: false |
+| city            | string  | null: false |
+| house_number    | integer | null: false |
+| house_name      | string  | null: false |
+| phone_number    | integer | null: false |
+
+### Association
+belongs_to :purchase_record
