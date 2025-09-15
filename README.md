@@ -55,7 +55,7 @@ has_one :shopping_information
 | city            | string  | null: false |
 | house_number    | integer | null: false |
 | house_name      | string  |             |
-| phone_number    | integer | null: false |
+| phone_number    | string  | null: false |
 
 ### Association
 belongs_to :purchase_record
