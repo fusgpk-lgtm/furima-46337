@@ -22,11 +22,11 @@ has_many :purchase_records
 |-----------------|---------|-------------|
 | item_name       | string  | null: false |
 | explanation     | text    | null: false |
-| category        | string  | null: false |
-| state           | string  | null: false |
-| delivery_charge | integer | null: false |
-| ship_from       | string  | null: false |
-| ship_day        | integer | null: false |
+| category_id     | integer | null: false |
+| state_id        | integer | null: false |
+| delivery_charge_id | integer | null: false |
+| ship_from_id    | integer | null: false |
+| ship_day_id     | integer | null: false |
 | price           | integer | null: false |
 | user            | references | foreign_key: true |
 
