@@ -12,4 +12,5 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :state
   belongs_to :delivery_charge
+  belongs_to :ship_from
 end
