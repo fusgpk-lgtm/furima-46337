@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   validates :item_name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :state_id, presence: true
+  validates :state_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_charge_id, presence: true
   validates :ship_from_id, presence: true
   validates :ship_day_id, presence: true
@@ -10,4 +10,5 @@ class Item < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+  belongs_to :state
 end
