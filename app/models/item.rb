@@ -13,4 +13,5 @@ class Item < ApplicationRecord
   belongs_to :state
   belongs_to :delivery_charge
   belongs_to :ship_from
+  belongs_to :ship_day
 end
