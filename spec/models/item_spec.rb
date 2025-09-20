@@ -72,16 +72,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
-    end
-    it 'priceが数字以外（文字列）では登録できない' do
-      @item.price = 'abc'
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Price is not a number')
-    end
-    it 'priceが少数では登録できない' do
-      @item.price = 300.5
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Price must be an integer')
+      it 'priceが数字以外（文字列）では登録できない' do
+        @item.price = 'abc'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'priceが少数では登録できない' do
+        @item.price = 300.5
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be an integer')
+      end
     end
   end
 end
