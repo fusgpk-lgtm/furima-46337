@@ -18,10 +18,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params.require(:id))
-  end
-
   private
 
   def item_params
