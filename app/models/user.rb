@@ -13,4 +13,5 @@ class User < ApplicationRecord
   validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'は半角英数字を両方含めて設定してください' }
 
   has_many :items
+  has_many :purchase_records
 end
