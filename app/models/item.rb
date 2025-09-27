@@ -22,4 +22,8 @@ class Item < ApplicationRecord
   belongs_to :ship_from
   belongs_to :ship_day
   has_one_attached :image
+
+  def sold_out?
+    purchase_record.present?
+  end
 end
