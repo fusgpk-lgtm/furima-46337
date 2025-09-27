@@ -1,6 +1,7 @@
 class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
+  before_action :move_to_root_path
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -21,14 +22,20 @@ class PurchaseRecordsController < ApplicationController
 
   private
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_root_path
+    return unless current_user.id == @item.user_id || @item.sold_out?
+
+    redirect_to root_path
+  end
+
   def purchase_form_params
     params.require(:purchase_form).permit(:post_number, :prefecture_id, :city, :house_number, :house_name, :phone_number, :token).merge(
       user_id: current_user.id, item_id: @item.id, token: params[:token]
     )
-  end
-
-  def set_item
-    @item = Item.find(params[:item_id])
   end
 
   def pay_item
