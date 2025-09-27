@@ -61,4 +61,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Disable asynchronous query execution in test environment to avoid conflicts with RSpec's transactional fixtures.
+  config.active_record.async_query_executor = :global_thread_pool
+
+  config.active_job.queue_adapter = :inline
 end
