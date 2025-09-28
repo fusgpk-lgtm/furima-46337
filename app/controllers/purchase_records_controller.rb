@@ -33,7 +33,7 @@ class PurchaseRecordsController < ApplicationController
   end
 
   def purchase_form_params
-    params.require(:purchase_form).permit(:post_number, :prefecture_id, :city, :house_number, :house_name, :phone_number, :token).merge(
+    params.require(:purchase_form).permit(:post_number, :prefecture_id, :city, :house_number, :house_name, :phone_number).merge(
       user_id: current_user.id, item_id: @item.id, token: params[:token]
     )
   end
