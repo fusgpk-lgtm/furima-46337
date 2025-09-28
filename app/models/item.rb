@@ -14,10 +14,16 @@ class Item < ApplicationRecord
   validates_numericality_of :price, only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999
 
   belongs_to :user
+  has_one :purchase_record
+
   belongs_to :category
   belongs_to :state
   belongs_to :delivery_charge
   belongs_to :ship_from
   belongs_to :ship_day
   has_one_attached :image
+
+  def sold_out?
+    purchase_record.present?
+  end
 end
