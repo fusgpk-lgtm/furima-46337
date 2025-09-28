@@ -32,5 +32,5 @@ const pay = () => {
   });
 };
 
-// ページ読み込み時に実行
 document.addEventListener("DOMContentLoaded", pay);
+window.addEventListener("turbo:render", pay);
