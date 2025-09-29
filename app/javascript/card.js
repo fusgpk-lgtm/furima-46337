@@ -20,17 +20,22 @@ const pay = () => {
 
     payjp.createToken(numberElement).then(function (response) {
       if (response.error) {
-        // エラーが発生した場合、ボタンを再度有効化
-        submitButton.disabled = false;
       } else {
         const token = response.id;
+        const renderDom = document.getElementById("charge-form");
         const tokenInput = `<input value=${token} name='token' type="hidden">`;
         form.insertAdjacentHTML("beforeend", tokenInput);
-        form.submit(); // トークンを付与してフォームを送信
       }
+        // 入力欄をクリア
+      numberElement.clear();
+      expiryElement.clear();
+      cvcElement.clear();
+
+      form.submit();
     });
+    
   });
 };
 
-document.addEventListener("DOMContentLoaded", pay);
+window.addEventListener("turbo:load", pay);
 window.addEventListener("turbo:render", pay);
